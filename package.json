@@ -1,0 +1,27 @@
+{
+  "name": "dependancy-install",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=4.0"
+  },
+  "description": "Install dependencies in multiple package.json files also allowing to define custom dependency paths.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/99xt/dependancy-install.git"
+  },
+  "keywords": [
+    "node",
+    "dependency",
+    "management"
+  ],
+  "author": "99xtechnology.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/99xt/dependancy-install/issues"
+  },
+  "homepage": "https://github.com/99xt/dependancy-install#readme"
+}
