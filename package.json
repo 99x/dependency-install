@@ -1,5 +1,5 @@
 {
-  "name": "dependancy-install",
+  "name": "dependency-install",
   "version": "0.0.1",
   "engines": {
     "node": ">=4.0"
