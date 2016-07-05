@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/99xt/dependancy-install/issues"
   },
-  "homepage": "https://github.com/99xt/dependancy-install#readme"
+  "homepage": "https://github.com/99xt/dependancy-install#readme",
+  "dependencies": {
+    "gulp-exec": "^2.1.2",
+    "vinyl-fs": "^2.4.3"
+  }
 }
