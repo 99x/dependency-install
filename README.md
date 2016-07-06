@@ -1,6 +1,27 @@
 # dependency-install
 Install dependencies in multiple package.json files also allowing to define custom dependency paths.
 
+## Installation
+
+Dependency-install package can be install via NPM. Use following command to install this package to your project.
+
+`npm install dependency-install --save`
+
+## Usage
+
+```javascript
+var depInstall = require('dependency-install');
+
+// Without callback
+depInstall('./path/to/required/directory');
+
+// With callback
+
+depInstall('./path/to/required/directory', function() {
+    // Instructions to execute after dependency installation.
+})
+
+```
 
 ## Contributing
 
