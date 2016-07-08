@@ -20,10 +20,10 @@ var vfs = require('vinyl-fs'),
                     libs = packageJSON.customDependencies;
                 if (libs) {
                     for (var lib in libs) {
-                        if (libs[lib].toLowerCase === "local") {
+                        if (libs[lib].toLowerCase() === "local") {
                             vfs.src(basePath + lib + '/**/*').pipe(vfs.dest(file.path.replace('package.json', 'node_modules/' + lib + '/')));
                         } else {
-                            //TODO add remote path (Git grls) support.
+                            //TODO add remote path (Git url) support.                            
                         }
                     }
                 }
