@@ -1,32 +1,29 @@
 {
-  "name": "dependency-install",
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=4.0"
-  },
-  "description": "Install dependencies in multiple package.json files also allowing to define custom dependency paths.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/99xt/dependancy-install.git"
-  },
-  "keywords": [
+    "name": "dependency-install",
+    "version": "0.0.1",
+    "description": "This plugin provides API to install npm dependancies in multiple package.json files with a single command. This also allows to define custom local dependencies in package.json, where the package code is stored in a directory inside your codebase.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/99xt/dependancy-install.git"
+    },
+    "keywords": [
     "node",
     "dependency",
     "management"
   ],
-  "author": "99xtechnology.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/99xt/dependancy-install/issues"
-  },
-  "homepage": "https://github.com/99xt/dependancy-install#readme",
-  "dependencies": {
-    "gulp-exec": "^2.1.2",
-    "gulp-tap": "^0.1.3",
-    "vinyl-fs": "^2.4.3"
-  }
+    "author": "99xtechnology.com",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/99xt/dependancy-install/issues"
+    },
+    "homepage": "https://github.com/99xt/dependancy-install#readme",
+    "dependencies": {
+        "gulp-exec": "^2.1.2",
+        "gulp-tap": "^0.1.3",
+        "vinyl-fs": "^2.4.3"
+    }
 }
