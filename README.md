@@ -1,70 +1,78 @@
 # dependency-install
-Install dependencies in multiple package.json files also allowing to define custom dependency paths.
+This plugin provides API to install npm dependancies in multiple package.json files with a single command.
+This also allows to define custom local dependencies in package.json, where the package code is stored in a directory inside your codebase.
 
 ## Installation
-
-Dependency-install package can be install via NPM. Use following command to install this package to your project.
-
+To include dependency-install in your project use
 `npm install dependency-install --save`
 
 ## Usage
-
 ```javascript
 var di = require('dependency-install');
-
-// Without callback
-di.install('./path/to/required/directory');
-
-// With callback
-
-di.install('./path/to/required/directory', function() {
-    // Instructions to execute after dependency installation.
+/* Executes npm install for all the pacakge.json files inside "./<your-directory>"
+di.install("./<your-directory>", function() {
+    // Things to do after dependency installation completes.
 });
-
 ```
 
 ### Custom dependencies
+What if you need to share code, but don't wish to publish packages in NPM Registry?
+You can use the Custom Dependancies feature.
 
-You can also use custom dependencies feature to share your common code with different directories.
-
-```
-__/your_custom_dependency_directory
-    |__dependency_a
-    |__dependency_b
-    |__dependency_c
-    |__dependency_d
-```
-
-In your package.json files have `customDependencies` with the required dependencies.
+1) Create a directory(e.g 'your_local_dependancies') in your codebase to store each local dependency(library) code. Create directories for each of the dependencies with a index.js inside, as shown below.
 
 ```
-package.json
+__/your_local_dependancies
+    |__dependency-a
+        |__index.js
+    |__dependency-b
+        |__index.js   
+        |__package.json // Optional if you have other npm dependancies
+    |__dependency-c
+        |__index.js
+    |__dependency-d
+        |__index.js
+```
+
+e.g of index.js inside dependency-a
+```javascript
+var sayHello = function() {
+	console.log("hello");
+};
+module.exports.sayHello = sayHello;
+```
+
+2) Open a package.json file in your code base which depends on a local dependency (lets say 'dependency-a' and 'dependency-b') and include the section 'customDependencies', as shown below.
+```json
 {
-        ...
-        customDependencies: {
-            "dependency_a" : "local",
-            "dependency_b" : "local"
+        "dependencies": {},
+        "dependencies": {
+            "dependency-a" : "local",
+            "dependency-b" : "local"
         }
 }
-
 ```
 
-Before use the `install` method, remember to set the base path for your custom dependency directory.
+3) Initialize the custom dependency path for the library, as shown below.
 
 ```javascript
-
-di.init('/path/to/your/dependency/directory/');
-di.install('./path/to/required/directory');
-
+var di = require('dependency-install');
+/* This is to register the cusotm dependancies path
+di.init('./your_local_dependancies');
+/* Executes npm install for all the pacakge.json files inside "./<your-directory>"
+di.install("./<your-directory>", function() {
+    // Things to do after dependency installation completes.
+});
 ```
-## Contributing
+Note: After running 'install' for all the package.json files, dependencies in NPM Registry is pulled and installed (Similar to running 'npm install' for each of the library) and also copies the custom dependancies from './your_local_dependancies' directory to the respective 'node_modules' directory.
 
-We love our contributors! If you'd like to contribute to the project, feel free to submit a PR. But please keep in mind the following guidelines:
 
-* Propose your changes before you start working on a PR. You can reach us by submitting a Github issue. This is just to make sure that no one else is working on the same change, and to figure out the best way to solve the issue.
-* If you're out of ideas, but still want to contribute, help us in solving Github issues already verified.
-* Contributions are not just PRs! We'd be grateful for having you, and if you could provide some support for new comers, that be great! You can also do that by answering this plugin related questions on Stackoverflow.
-You can also contribute by writing. Feel free to let us know if you want to publish a useful guides, improve the documentation (attributed to you, thank you!) that you feel will help the community.
+3) Finally in your code requrie the dependency similar in using a module from NPM Registry, as shown below.
+
+```javascript
+var dependencyA = require('dependency-a');
+dependencyA.sayHello(); // Prints "Hello"
+```
 
 ## License
 
