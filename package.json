@@ -1,6 +1,6 @@
 {
     "name": "dependency-install",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "This plugin provides API to install npm dependancies in multiple package.json files by providing the root directory. It also allows to define custom local dependencies inside package.json",
     "main": "index.js",
     "scripts": {
