@@ -9,7 +9,7 @@ To include dependency-install in your project use
 ## Usage
 ```javascript
 var di = require('dependency-install');
-/* Executes npm install for all the pacakge.json files inside "./<your-directory>"
+/* Executes npm install for all the pacakge.json files inside "./<your-directory>" */
 di.install("./<your-directory>", function() {
     // Things to do after dependency installation completes.
 });
@@ -57,9 +57,9 @@ module.exports.sayHello = sayHello;
 
 ```javascript
 var di = require('dependency-install');
-/* This is to register the cusotm dependancies path
+/* This is to register the cusotm dependancies path */
 di.init('./your_local_dependancies');
-/* Executes npm install for all the pacakge.json files inside "./<your-directory>"
+/* Executes npm install for all the pacakge.json files inside "./<your-directory>" */
 di.install("./<your-directory>", function() {
     // Things to do after dependency installation completes.
 });
