@@ -28,10 +28,6 @@ __/your_local_dependancies
     |__dependency-b
         |__index.js   
         |__package.json // Optional if you have other npm dependancies
-    |__dependency-c
-        |__index.js
-    |__dependency-d
-        |__index.js
 ```
 
 e.g of index.js inside dependency-a

@@ -1,6 +1,6 @@
 {
     "name": "dependency-install",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "This plugin provides API to install npm dependancies in multiple package.json files with a single command. This also allows to define custom local dependencies in package.json, where the package code is stored in a directory inside your codebase.",
     "main": "index.js",
     "scripts": {
@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/99xt/dependancy-install.git"
+        "url": "git+https://github.com/99xt/dependency-install.git"
     },
     "keywords": [
     "node",
@@ -18,9 +18,9 @@
     "author": "99xtechnology.com",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/99xt/dependancy-install/issues"
+        "url": "https://github.com/99xt/dependency-install/issues"
     },
-    "homepage": "https://github.com/99xt/dependancy-install#readme",
+    "homepage": "https://github.com/99xt/dependency-install#readme",
     "dependencies": {
         "gulp-exec": "^2.1.2",
         "gulp-tap": "^0.1.3",
