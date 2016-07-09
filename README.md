@@ -1,6 +1,5 @@
 # dependency-install
-This plugin provides API to install npm dependancies in multiple package.json files with a single command.
-This also allows to define custom local dependencies in package.json, where the package code is stored in a directory inside your codebase.
+This plugin provides API to install npm dependancies in multiple package.json files by providing the root directory. It also allows to define custom local dependencies inside package.json.
 
 ## Installation
 To include dependency-install in your project use
