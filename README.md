@@ -8,8 +8,8 @@ To include dependency-install in your project use
 ## Usage
 ```javascript
 var di = require('dependency-install');
-/* Executes npm install for all the pacakge.json files inside "./<your-directory>" */
-di.install("./<your-directory>", function() {
+/* Executes npm install for all the nested pacakge.json files inside "./<your-directory>" */
+di.install(["./<your-directory>"], function() {
     // Things to do after dependency installation completes.
 });
 ```
@@ -53,11 +53,11 @@ You can use the Custom Dependancies feature.
     /* This is to register the cusotm dependancies path */
     di.init('./your_local_dependancies');
     /* Executes npm install for all the pacakge.json files inside "./<your-directory>" */
-    di.install("./<your-directory>", function() {
+    di.install(["./<your-directory>"], function() {
         // Things to do after dependency installation completes.
     });
     ```
-    Note: After running 'install' for all the package.json files, dependencies in NPM Registry is pulled and installed (Similar to running 'npm install' for each of the library) and also copies the custom dependancies from './your_local_dependancies' directory to the respective 'node_modules' directory.
+    Note: After running 'install' for all the nested package.json file dependencies installed from NPM Registry(Similar to running 'npm install' for each of the package) and also copies the custom dependancies from './your_local_dependancies' directory to the respective 'node_modules' directory.
 
 4. Finally in your code requrie the dependency similar in using a module from NPM Registry, as shown below.
     ```javascript

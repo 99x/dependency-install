@@ -1,6 +1,6 @@
 'use strict';
 
-var vfs = require('vinyl-fs'),
+var gulp = require('gulp'),
     exec = require('gulp-exec'),
     tap = require('gulp-tap'),
     isWin = /^win/.test(process.platform),
@@ -9,8 +9,8 @@ var vfs = require('vinyl-fs'),
     init = function (path) {
         basePath = path.endsWith("/") ? path : path + "/";
     },
-    install = function (path, callback) {
-        var stream, options = {
+    install = function (paths, callback) {
+        var src, stream, options = {
                 dir: function (filePath) {
                     return filePath.replace('package.json', '');
                 }
@@ -21,13 +21,17 @@ var vfs = require('vinyl-fs'),
                 if (libs) {
                     for (var lib in libs) {
                         if (libs[lib].toLowerCase() === "local") {
-                            vfs.src(basePath + lib + '/**/*').pipe(vfs.dest(file.path.replace('package.json', 'node_modules/' + lib + '/')));
+                            gulp.src(basePath + lib + '/**/*').pipe(gulp.dest(file.path.replace('package.json', 'node_modules/' + lib + '/')));
                         }
                     }
                 }
             };
+        src = paths.map(function (path) {
+            return (path.endsWith("/") ? path : path + "/") + '**/package.json';
+        });
+        src.push('!./**/{node_modules,node_modules/**}');
 
-        stream = vfs.src([path + '/**/package.json', '!./**/{node_modules,node_modules/**}'])
+        stream = gulp.src(src)
             .pipe(tap(shared))
             .pipe(exec('(cd <%= options.dir(file.path) %> ' + commandSeparator + ' npm install) ' + commandSeparator + ' echo Installed for: <%= file.path %> \n', options))
             .pipe(exec.reporter());
@@ -35,6 +39,8 @@ var vfs = require('vinyl-fs'),
         stream.on('finish', callback || function () {
             console.log("Package installation completed.");
         });
+
+        return stream;
     };
 
 module.exports = {
