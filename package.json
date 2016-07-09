@@ -1,6 +1,6 @@
 {
     "name": "dependency-install",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "This plugin provides API to install npm dependancies in multiple package.json files by providing the root directory. It also allows to define custom local dependencies inside package.json",
     "main": "index.js",
     "scripts": {
@@ -11,12 +11,14 @@
         "url": "git+https://github.com/99xt/dependency-install.git"
     },
     "keywords": [
-    "node",
-    "dependency",
-    "management",
+        "node",
+        "dependency",
+        "management",
         "npm",
         "install",
         "shared",
+        "gulp",
+        "gulp install",
         "install all",
         "npm install",
         "local",
