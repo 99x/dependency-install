@@ -1,7 +1,7 @@
 {
     "name": "dependency-install",
-    "version": "0.0.8",
-    "description": "This plugin provides API to install npm dependancies in multiple package.json files by providing the root directory. It also allows to define custom local dependencies inside package.json",
+    "version": "0.0.9",
+    "description": "This plugin provides API to install npm dependencies in multiple package.json files by providing the root directory. It also allows to define custom local dependencies inside package.json",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
