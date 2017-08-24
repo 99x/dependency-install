@@ -4,7 +4,7 @@
     "description": "This plugin provides API to install npm dependencies in multiple package.json files by providing the root directory. It also allows to define custom local dependencies inside package.json",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"No tests added\""
     },
     "repository": {
         "type": "git",
